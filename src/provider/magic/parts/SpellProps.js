@@ -56,8 +56,8 @@ function Spell(props) {
   return html`<${SelectEntry}
     id=${ id }
     element=${ element }
-    description=${ translate('Apply test black magic spell') }
-    label=${ translate('Spell') }
+    description=${ translate('Apply test props') }
+    label=${ translate('Test Type') }
     getValue=${ getValue }
     setValue=${ setValue }
     getOptions=${ getOptions }

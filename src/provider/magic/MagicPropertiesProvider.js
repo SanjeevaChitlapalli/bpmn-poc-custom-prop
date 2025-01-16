@@ -64,7 +64,7 @@ function createMagicGroup(element, translate) {
   // create a group called "Magic properties".
   const magicGroup = {
     id: 'magic',
-    label: translate('Magic properties'),
+    label: translate('Testing'),
     entries: spellProps(element)
   };
 
