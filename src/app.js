@@ -16,11 +16,28 @@ import {
 import magicPropertiesProviderModule from './provider/magic';
 import magicModdleDescriptor from './descriptors/magic';
 
+import magicPropertiesProviderModule1 from './provider/magic copy';
+import magicModdleDescriptor1 from './descriptors/magic copy';
+
 import {
   debounce
 } from 'min-dash';
 
 import diagramXML from '../resources/newDiagram.bpmn';
+
+
+import { getBusinessObject } from 'bpmn-js/lib/util/ModelUtil';
+
+import QualityAssurancePropertiesProvider from './provider/QualityAssurancePropertiesProvider';
+
+
+import customModule from './custom';
+
+import qaExtension from '../resources/qa';
+
+import "./css/app.css"
+
+const HIGH_PRIORITY = 1500;
 
 
 var container = $('#js-drop-zone');
@@ -31,13 +48,27 @@ var bpmnModeler = new BpmnModeler({
     parent: '#js-properties-panel'
   },
   additionalModules: [
+    {
+       __init__: ['qualityAssurancePropertiesProvider'],
+      qualityAssurancePropertiesProvider: ['type', QualityAssurancePropertiesProvider]
+    },
     BpmnPropertiesPanelModule,
     BpmnPropertiesProviderModule,
-    magicPropertiesProviderModule
+    magicPropertiesProviderModule,
+    magicPropertiesProviderModule1,
+    customModule,
+    
   ],
   moddleExtensions: {
-    magic: magicModdleDescriptor
+    magic: magicModdleDescriptor,
+    test: magicModdleDescriptor1,
+    qa: qaExtension
   }
+});
+
+$('#container').css({
+  height: '100%',
+  width: '100%'
 });
 
 function createNewDiagram() {
@@ -173,3 +204,5 @@ $(function() {
 
   bpmnModeler.on('commandStack.changed', exportArtifacts);
 });
+
+
