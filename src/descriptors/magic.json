@@ -5,20 +5,21 @@
   "xml": {
     "tagAlias": "lowerCase"
   },
-  "associations": [],
   "types": [
     {
-      "name": "BewitchedStartEvent",
-      "extends": [
-        "bpmn:StartEvent"
-      ],
+      "name": "SpellExtension",
+      "superClass": ["Element"],
       "properties": [
         {
-          "name": "spell",
-          "isAttr": true,
+          "name": "spellValue",
           "type": "String"
         }
       ]
+    },
+    {
+      "name": "BewitchedStartEvent",
+      "extends": ["bpmn:StartEvent"],
+      "properties": []
     }
   ]
 }

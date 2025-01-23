@@ -1,24 +1,25 @@
 {
-  "name": "Magic1",
+  "name": "Magic",
   "prefix": "magic1",
   "uri": "http://magic1",
   "xml": {
     "tagAlias": "lowerCase"
   },
-  "associations": [],
   "types": [
     {
-      "name": "BewitchedStartEvent",
-      "extends": [
-        "bpmn:StartEvent"
-      ],
+      "name": "SpellExtension",
+      "superClass": ["Element"],
       "properties": [
         {
-          "name": "spell1",
-          "isAttr": true,
+          "name": "spellValue",
           "type": "String"
         }
       ]
+    },
+    {
+      "name": "BewitchedStartEvent",
+      "extends": ["bpmn:StartEvent"],
+      "properties": []
     }
   ]
 }
